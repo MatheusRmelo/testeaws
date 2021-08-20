@@ -1,11 +1,16 @@
 const express = require('express')
 const app = express()
-const port = 3000
+
+app.use(express.json());
 
 app.get('/', (req, res) => {
   return res.json({message:"Server is UP"});
+});
+
+app.post("/teste", (req, res)=>{
+    const {name, date} = req.body;
+
+    return res.json({name,date});
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(3333)
